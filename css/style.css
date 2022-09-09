@@ -1,0 +1,136 @@
+html {
+  box-sizing: border-box
+}
+
+/* The Universal Selector */
+*, /* All elements*/
+*::before, /* All ::before pseudo-elements */
+*::after { /* All ::after pseudo-elements */
+  /* height & width will now include border & padding by default
+     but can be over-ridden as needed */
+  box-sizing: inherit;
+}
+
+body {
+  background-color: gray;
+/* Use a system font, if none are available use an available sans-sarif   font */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  width:  250px;
+  background-color: white;
+  text-align: center;
+}
+
+#status {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 8px 0 0;
+}
+
+#img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 125px;
+}
+
+img {
+  border-radius: 50%;
+  border: 2px green solid;
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+}
+
+#occupation {
+  background-color: darkgray; 
+}
+
+#brand {
+  display:none;
+}
+
+p {
+  margin: 4px;
+}
+
+#occupation, #offer {
+  padding: 4px 0
+}
+
+#contact {
+  display: flex;
+}
+
+#contact > p {
+  height: 60px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
+
+#contact > p:first-child {
+  background-color: lime;
+}
+
+#contact > p:last-child {
+  background-color: green;
+}
+
+@media only screen and (min-width: 768px) {
+  main{
+    display: grid;
+    width: 400px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: [row1start] 20% [row2start] 20% [row3start] 35% [row4start] 25%;
+  }
+  #status {
+    grid-row-start: 1;
+    justify-content: flex-start;
+    padding: 0px;
+    margin: 10px 0 0 10px;
+  }
+  #contact {
+    grid-column-start: 1;
+    grid-row-start: 4;
+  }
+  #img-container {
+    grid-column-start:1;
+    grid-row-start:2;
+    grid-row-end: 3;
+  }
+  h1 {
+    text-align: left;
+  }
+  #occupation {
+    text-align: left;
+    padding: 0px;
+    font-size: 14px;
+    background-color: white;
+  }
+  #brand {
+    display: inline;
+    grid-column-start: 2;
+    /*don't know how to prevent this item from stretching the container */
+
+  }
+  #offer {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    padding: 0px;
+  }
+}
